@@ -153,5 +153,49 @@ function processValue(value: string | number): number{
    
 }
 
-console.log(processValue("hello i am nafiz from faridpur")); // Output: 5
-console.log(processValue(140));      // Output: 20
+// console.log(processValue("hello i am nafiz from faridpur")); // Output: 5
+// console.log(processValue(140));      // Output: 20
+
+
+// =========================PROBLEM 6=====================
+// Problem 6:
+// Description: Define an interface Product and create a function to find the product with the highest price in an array. If the array is empty, return null.
+
+// Interface & Function Signature:
+
+// interface Product {
+//   name: string;
+//   price: number;
+// }
+
+// function getMostExpensiveProduct(products: Product[]): Product | null
+// Example:
+
+// const products = [
+//   { name: "Pen", price: 10 },
+//   { name: "Notebook", price: 25 },
+//   { name: "Bag", price: 50 }
+// ];
+
+// getMostExpensiveProduct(products);  
+// // Output: { name: "Bag", price: 50 }
+const products = [
+  { name: "Pen", price: 50 },
+  { name: "Notebook", price: 25 },
+  { name: "Bag", price: 50 }
+];
+interface Product{
+   name:string;
+   price:number;
+}
+function getMostExpensiveProduct(products:Product[]):Product|null{
+   if(products.length === 0){
+      return null
+   }
+   const maxProductsArray = [...products].sort((a,b)=>b.price - a.price)
+   // console.log(maxProductsArray)
+   return maxProductsArray[0]
+}
+
+
+console.log(getMostExpensiveProduct(products))
